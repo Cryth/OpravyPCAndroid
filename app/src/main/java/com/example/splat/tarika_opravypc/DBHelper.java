@@ -36,12 +36,17 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_TABLE_CUSTOMERS);
+        db.execSQL(CREATE_TABLE_COMPUTERS);
+        db.execSQL(CREATE_TABLE_REPAIRS);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL("DROP TABLE IF EXISTS "+MojaDat.Customers.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+MojaDat.Computers.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+MojaDat.Repairs.TABLE_NAME);
+        onCreate(db);
     }
 }
