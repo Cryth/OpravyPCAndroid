@@ -1,6 +1,7 @@
 package com.example.splat.tarika_opravypc;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -48,5 +49,13 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+MojaDat.Computers.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS "+MojaDat.Repairs.TABLE_NAME);
         onCreate(db);
+    }
+
+    public Cursor getCursor(String selector, String[] args){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery(selector, args);
+        c.moveToFirst();
+        db.close();
+        return c;
     }
 }
