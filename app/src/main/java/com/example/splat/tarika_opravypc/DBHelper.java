@@ -1,5 +1,6 @@
 package com.example.splat.tarika_opravypc;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -58,4 +59,40 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return c;
     }
+
+    public void addCustomer(Customer c){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(MojaDat.Customers.COLUMN_NAME, c.getMeno());
+        values.put(MojaDat.Customers.COLUMN_EMAIL, c.getEmail());
+
+        db.insert(MojaDat.Customers.TABLE_NAME, null, values);
+        db.close();
+    }
+    public void addComputer(Computer comp){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(MojaDat.Computers.COLUMN_CID, comp.getcID());
+        values.put(MojaDat.Computers.COLUMN_BRAND, comp.getZnacka());
+        values.put(MojaDat.Computers.COLUMN_MODEL, comp.getModel());
+
+        db.insert(MojaDat.Computers.TABLE_NAME, null, values);
+        db.close();
+    }
+    public void addRepair(Repair r){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(MojaDat.Repairs.COLUMN_COID, r.getCoID());
+        values.put(MojaDat.Repairs.COLUMN_DATE, r.getDatum());
+        values.put(MojaDat.Repairs.COLUMN_OBJECT, r.getPredmet());
+        values.put(MojaDat.Repairs.COLUMN_ABOUT, r.getPopis());
+
+        db.insert(MojaDat.Repairs.TABLE_NAME, null, values);
+        db.close();
+    }
+
+
 }

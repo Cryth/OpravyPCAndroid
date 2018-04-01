@@ -9,11 +9,11 @@ import java.util.Date;
 public class Repair {
     private long ID;
     private long coID;
-    private Date Datum;
+    private String Datum;
     private String Predmet;
     private String Popis;
 
-    public Repair(long ID, long coID, Date datum, String predmet, String popis) {
+    public Repair(long ID, long coID, String datum, String predmet, String popis) {
         this.ID = ID;
         this.coID = coID;
         Datum = datum;
@@ -37,11 +37,11 @@ public class Repair {
         this.coID = coID;
     }
 
-    public Date getDatum() {
+    public String getDatum() {
         return Datum;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(String datum) {
         Datum = datum;
     }
 
