@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     private void PridajCustomers() {
         Customer c = new Customer(0, "Patrik Tariška", "pattar19@icloud.com");
         dbh.addCustomer(c);
@@ -51,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
                 Cursor c = ((SimpleCursorAdapter)lv.getAdapter()).getCursor();
                 c.moveToPosition(i);
                 long id = c.getLong(c.getColumnIndex(MojaDat.Customers.COLUMN_ID));
-                startActivity(new Intent(getApplicationContext(), computersActivity.class).putExtra("index", id));
+                String meno = c.getString(c.getColumnIndex(MojaDat.Customers.COLUMN_NAME));
+                startActivity(new Intent(getApplicationContext(), computersActivity.class).putExtra("index", Long.toString(id)).putExtra("meno", meno));
             }
         };
         ListView lv = findViewById(R.id.listcustomer);
