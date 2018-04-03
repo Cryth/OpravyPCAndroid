@@ -311,4 +311,19 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
+    public void deleteCustomer(long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(MojaDat.Customers.TABLE_NAME, MojaDat.Customers.COLUMN_ID + "= ?", new String[]{""+id});
+        db.close();
+    }
+    public void deleteComputer(long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(MojaDat.Computers.TABLE_NAME, MojaDat.Computers.COLUMN_ID + "= ?", new String[]{""+id});
+        db.close();
+    }
+    public void deleteRepair(long id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(MojaDat.Repairs.TABLE_NAME, MojaDat.Repairs.COLUMN_ID + "= ?", new String[]{""+id});
+        db.close();
+    }
 }
