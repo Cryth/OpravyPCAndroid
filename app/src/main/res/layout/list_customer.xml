@@ -6,7 +6,7 @@
     <TextView
         android:id="@+id/listMeno"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:text="meno"
         android:layout_weight="1"
         android:textAlignment="center"
@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/dvojbodka"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_weight="0.05"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -28,7 +28,7 @@
     <TextView
         android:id="@+id/listEmail"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_weight="1"
         android:text="email"
         android:textSize="16sp"

@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         dbh.deleteCustomer(ID);
                         PripojAdapter();
                         dialogInterface.dismiss();
-                        Toast.makeText(MainActivity.this, "Mažem", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Zmazané", Toast.LENGTH_SHORT).show();
                     }
                 }).setNegativeButton("Nie", new DialogInterface.OnClickListener() {
                     @Override

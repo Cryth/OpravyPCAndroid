@@ -18,9 +18,15 @@
         android:textAlignment="center"
         />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
     <ListView
+        android:layout_margin="5dp"
         android:id="@+id/listcustomer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
 </LinearLayout>

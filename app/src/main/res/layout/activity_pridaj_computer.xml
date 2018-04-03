@@ -5,28 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center_horizontal"
     android:layout_margin="10dp"
-    tools:context="com.example.splat.tarika_opravypc.pridajCustomer">
+    tools:context="com.example.splat.tarika_opravypc.pridajComputer">
 
     <TextView
-        android:id="@+id/menoHead"
+        android:id="@+id/brandHead"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Meno"
+        android:text="Značka"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textAlignment="center"/>
 
     <EditText
-        android:id="@+id/menoEnter"
+        android:id="@+id/brandEnter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:textSize="18sp"
         android:inputType="textPersonName"
         android:textAlignment="center"
-        android:hint="Meno zákazníka"
+        android:hint="Značka počítača"
         />
 
     <Space
@@ -35,10 +34,10 @@
         />
 
     <TextView
-        android:id="@+id/emailHead"
+        android:id="@+id/modelHead"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="Model"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -46,12 +45,12 @@
 
 
     <EditText
-        android:id="@+id/emailEnter"
+        android:id="@+id/modelEnter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Email zákazníka"
-        android:inputType="textEmailAddress"
+        android:hint="Model počítača"
+        android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -61,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="35dp"
         />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,5 +88,4 @@
             android:text="Zrušiť"
             android:onClick="zrusenie"/>
     </LinearLayout>
-
 </LinearLayout>

@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".computersActivity" />
-        <activity android:name=".pridajCustomer"></activity>
+        <activity android:name=".pridajCustomer" />
+        <activity android:name=".pridajComputer"></activity>
     </application>
 
 </manifest>
