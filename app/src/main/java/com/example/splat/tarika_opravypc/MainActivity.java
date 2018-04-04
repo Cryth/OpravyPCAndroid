@@ -27,17 +27,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Opravy počítačov - Zákazníci");
         PripojAdapter();
-        //PridajCustomers();
         PridajListener();
     }
 
-
-
-
-    private void PridajCustomers() {
-        Customer c = new Customer(0, "Patrik Tariška", "pattar19@icloud.com");
-        dbh.addCustomer(c);
-    }
 
     private void PripojAdapter() {
         String[] from = new String[]{MojaDat.Customers.COLUMN_NAME, MojaDat.Customers.COLUMN_EMAIL};
@@ -71,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         c.moveToPosition(position);
                         long ID = c.getLong(c.getColumnIndex(MojaDat.Customers.COLUMN_ID));
                         dbh.deleteCustomer(ID);
+                        dbh.deleteComputers(ID);
                         PripojAdapter();
                         dialogInterface.dismiss();
                         Toast.makeText(MainActivity.this, "Zmazané", Toast.LENGTH_SHORT).show();

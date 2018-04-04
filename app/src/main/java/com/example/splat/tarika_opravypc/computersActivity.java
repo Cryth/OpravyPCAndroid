@@ -36,12 +36,12 @@ public class computersActivity extends AppCompatActivity {
         AdapterView.OnItemClickListener clickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ListView lv = findViewById(R.id.listcustomer);
+                ListView lv = findViewById(R.id.listcomputer);
                 Cursor c = ((SimpleCursorAdapter)lv.getAdapter()).getCursor();
                 c.moveToPosition(i);
-                long id = c.getLong(c.getColumnIndex(MojaDat.Customers.COLUMN_ID));
-                String meno = c.getString(c.getColumnIndex(MojaDat.Customers.COLUMN_NAME));
-                //startActivity(new Intent(computersActivity.this, repairsActivity.class).putExtra("index", Long.toString(id)).putExtra("meno", meno));
+                long id = c.getLong(c.getColumnIndex(MojaDat.Computers.COLUMN_ID));
+                String pc = c.getString(c.getColumnIndex(MojaDat.Computers.COLUMN_BRAND))+" "+c.getString(c.getColumnIndex(MojaDat.Computers.COLUMN_MODEL));
+                startActivity(new Intent(computersActivity.this, repairsActivity.class).putExtra("index", Long.toString(id)).putExtra("pc", pc));
             }
         };
         AdapterView.OnItemLongClickListener longClickListener = new AdapterView.OnItemLongClickListener() {
@@ -51,11 +51,12 @@ public class computersActivity extends AppCompatActivity {
                 builder.setMessage("Vymazať naozaj?").setTitle("Mazanie").setPositiveButton("Ano", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        ListView lv = findViewById(R.id.listcustomer);
+                        ListView lv = findViewById(R.id.listcomputer);
                         Cursor c = ((SimpleCursorAdapter) lv.getAdapter()).getCursor();
                         c.moveToPosition(position);
-                        long ID = c.getLong(c.getColumnIndex(MojaDat.Customers.COLUMN_ID));
+                        long ID = c.getLong(c.getColumnIndex(MojaDat.Computers.COLUMN_ID));
                         dbh.deleteComputer(ID);
+                        dbh.deleteRepairs(ID);
                         PripojAdapter();
                         dialogInterface.dismiss();
                         Toast.makeText(computersActivity.this, "Zmazané", Toast.LENGTH_SHORT).show();

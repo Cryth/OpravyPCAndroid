@@ -321,9 +321,22 @@ public class DBHelper extends SQLiteOpenHelper {
         db.delete(MojaDat.Computers.TABLE_NAME, MojaDat.Computers.COLUMN_ID + "= ?", new String[]{""+id});
         db.close();
     }
+
+    public void deleteComputers(long cid){
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(MojaDat.Computers.TABLE_NAME, MojaDat.Computers.COLUMN_CID + "= ?", new String[]{""+cid});
+        db.close();
+    }
+
     public void deleteRepair(long id) {
         SQLiteDatabase db = getWritableDatabase();
         db.delete(MojaDat.Repairs.TABLE_NAME, MojaDat.Repairs.COLUMN_ID + "= ?", new String[]{""+id});
+        db.close();
+    }
+
+    public void deleteRepairs(long coid) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(MojaDat.Repairs.TABLE_NAME, MojaDat.Repairs.COLUMN_COID + "= ?", new String[]{""+coid});
         db.close();
     }
 }
