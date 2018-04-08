@@ -50,7 +50,8 @@ public class repairsActivity extends AppCompatActivity {
                 long id = c.getLong(c.getColumnIndex(MojaDat.Repairs.COLUMN_ID));
                 String object = c.getString(c.getColumnIndex(MojaDat.Repairs.COLUMN_OBJECT));
                 String about = c.getString(c.getColumnIndex(MojaDat.Repairs.COLUMN_ABOUT));
-                //startActivity(new Intent(repairsActivity.this, aboutActivity.class).putExtra("index", Long.toString(id)).putExtra("about", about).putExtra("object", object).putExtra("pc", pc));
+                String date = c.getString(c.getColumnIndex(MojaDat.Repairs.COLUMN_DATE));
+                startActivity(new Intent(repairsActivity.this, aboutActivity.class).putExtra("about", about).putExtra("object", object).putExtra("pc", pc).putExtra("date", date));
             }
         };
         AdapterView.OnItemLongClickListener longClickListener = new AdapterView.OnItemLongClickListener() {
