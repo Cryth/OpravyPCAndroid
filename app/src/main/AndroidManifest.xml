@@ -19,7 +19,8 @@
         <activity android:name=".computersActivity" />
         <activity android:name=".pridajCustomer" />
         <activity android:name=".pridajComputer" />
-        <activity android:name=".repairsActivity"></activity>
+        <activity android:name=".repairsActivity" />
+        <activity android:name=".pridajRepair"></activity>
     </application>
 
 </manifest>

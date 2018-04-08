@@ -114,6 +114,5 @@ public class computersActivity extends AppCompatActivity {
                 }
                 break;
         }
-
     }
 }

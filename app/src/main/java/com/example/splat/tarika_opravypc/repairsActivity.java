@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 public class repairsActivity extends AppCompatActivity {
     Intent intent;
+    String pc;
     DBHelper dbh = new DBHelper(this);
     SimpleCursorAdapter myAdapt;
 
@@ -22,7 +25,8 @@ public class repairsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repairs);
         intent = getIntent();
-        setTitle(intent.getStringExtra("pc"));
+        pc = intent.getStringExtra("pc");
+        setTitle(pc);
         PripojAdapter();
         PridajListener();
     }
@@ -46,7 +50,7 @@ public class repairsActivity extends AppCompatActivity {
                 long id = c.getLong(c.getColumnIndex(MojaDat.Repairs.COLUMN_ID));
                 String object = c.getString(c.getColumnIndex(MojaDat.Repairs.COLUMN_OBJECT));
                 String about = c.getString(c.getColumnIndex(MojaDat.Repairs.COLUMN_ABOUT));
-                //startActivity(new Intent(repairsActivity.this, aboutActivity.class).putExtra("index", Long.toString(id)).putExtra("pc", pc));
+                //startActivity(new Intent(repairsActivity.this, aboutActivity.class).putExtra("index", Long.toString(id)).putExtra("about", about).putExtra("object", object).putExtra("pc", pc));
             }
         };
         AdapterView.OnItemLongClickListener longClickListener = new AdapterView.OnItemLongClickListener() {
@@ -79,5 +83,37 @@ public class repairsActivity extends AppCompatActivity {
         ListView lv = findViewById(R.id.listrepair);
         lv.setOnItemClickListener(clickListener);
         lv.setOnItemLongClickListener(longClickListener);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_repair, menu);
+        return true;
+    }
+
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+            case R.id.addRepair:
+                startActivityForResult(new Intent(repairsActivity.this, pridajRepair.class).putExtra("pc", pc), 1);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+            case 1:
+                if(resultCode == RESULT_OK){
+                    String object = data.getStringExtra("object");
+                    String about = data.getStringExtra("about");
+                    String date = data.getStringExtra("date");
+                    dbh.addRepair(new Repair(0, Long.parseLong(intent.getStringExtra("index")), date, object, about));
+                    PripojAdapter();
+                }
+                break;
+        }
     }
 }
