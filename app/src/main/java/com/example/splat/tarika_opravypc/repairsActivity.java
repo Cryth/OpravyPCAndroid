@@ -34,7 +34,7 @@ public class repairsActivity extends AppCompatActivity {
     private void PripojAdapter() {
         String[] from = new String[]{MojaDat.Repairs.COLUMN_OBJECT, MojaDat.Repairs.COLUMN_DATE};
         int[] into = new int[]{R.id.object, R.id.date};
-        myAdapt = new SimpleCursorAdapter(this, R.layout.list_repair, dbh.getCursor("SELECT * FROM "+MojaDat.Repairs.TABLE_NAME+" WHERE "+MojaDat.Repairs.COLUMN_COID+" = ?", new String[]{intent.getStringExtra("index")}), from, into, 0);
+        myAdapt = new SimpleCursorAdapter(this, R.layout.list_repair, dbh.getCursor("SELECT * FROM "+MojaDat.Repairs.TABLE_NAME+" WHERE "+MojaDat.Repairs.COLUMN_COID+" = ? ORDER BY "+MojaDat.Repairs.COLUMN_ID+" DESC", new String[]{intent.getStringExtra("index")}), from, into, 0);
         ListView lv = findViewById(R.id.listrepair);
         lv.setAdapter(myAdapt);
 
