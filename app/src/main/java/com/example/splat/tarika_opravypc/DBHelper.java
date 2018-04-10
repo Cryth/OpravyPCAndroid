@@ -48,6 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_CUSTOMERS);
         db.execSQL(CREATE_TABLE_COMPUTERS);
         db.execSQL(CREATE_TABLE_REPAIRS);
+        PridajUdaje(); // ukazkove udaje
     }
 
     @Override
@@ -338,5 +339,16 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.delete(MojaDat.Repairs.TABLE_NAME, MojaDat.Repairs.COLUMN_COID + "= ?", new String[]{""+coid});
         db.close();
+    }
+    private void PridajUdaje() {
+        //ukazkove udaje
+        addCustomer(new Customer(1, "Jozef Mrkvička", "zelenina@zelovoc.sk"));
+        addCustomer(new Customer(2, "Amália Vílová", "vilaamalka@fairytale.cz"));
+        addComputer(new Computer(1,1,"Lenovo", "Legion Y520"));
+        addComputer(new Computer(2,1, "HP", "Pavilion 500"));
+        addComputer(new Computer(3,2,"Lenovo", "Y550"));
+        addRepair(new Repair(0, 1, "10/2/2018", "Klávesnica", "Výmena klavesnice z dôvodu nefunkčných tlačidiel Y, T, Q, P."));
+        addRepair(new Repair(0, 2, "10/2/2018", "Webkamera", "Oprava obrazu webkamery a výmena mikrofónu v nej z dôvodu šušťania."));
+        addRepair(new Repair(0, 3, "3/3/2018", "Reproduktory", "Oprava šušťania pravého reproduktora. Výmena za nový kus."));
     }
 }

@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         PridajListener();
     }
 
-
     private void PripojAdapter() {
         String[] from = new String[]{MojaDat.Customers.COLUMN_NAME, MojaDat.Customers.COLUMN_EMAIL};
         int[] into = new int[]{R.id.listMeno, R.id.listEmail};
