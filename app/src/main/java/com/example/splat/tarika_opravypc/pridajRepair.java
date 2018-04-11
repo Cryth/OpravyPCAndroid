@@ -1,6 +1,7 @@
 package com.example.splat.tarika_opravypc;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ public class pridajRepair extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pridaj_repair);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         Intent intent = getIntent();
         setTitle("Pridanie opravy: "+intent.getStringExtra("pc"));
     }

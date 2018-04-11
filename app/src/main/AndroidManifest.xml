@@ -11,17 +11,16 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".computersActivity" />
-        <activity android:name=".pridajCustomer" />
-        <activity android:name=".pridajComputer" />
-        <activity android:name=".repairsActivity" />
-        <activity android:name=".pridajRepair" />
-        <activity android:name=".aboutActivity"></activity>
+        <activity android:name=".computersActivity"/>
+        <activity android:name=".pridajCustomer"/>
+        <activity android:name=".pridajComputer"/>
+        <activity android:name=".repairsActivity"/>
+        <activity android:name=".pridajRepair"/>
+        <activity android:name=".aboutActivity"/>
     </application>
 
 </manifest>
