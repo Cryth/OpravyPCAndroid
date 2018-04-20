@@ -80,7 +80,7 @@ public class repairsActivity extends AppCompatActivity {
                     }
                 });
                 builder.show();
-                return false;
+                return true;
             }
         };
         ListView lv = findViewById(R.id.listrepair);

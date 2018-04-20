@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 builder.show();
-                return false;
+                return true;
             }
         };
         ListView lv = findViewById(R.id.listcustomer);
